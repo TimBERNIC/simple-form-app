@@ -2,7 +2,8 @@ import { useState } from "react";
 import "./App.css";
 import Form from "./assets/components/Form";
 import StepTwo from "./assets/components/StepTwo";
-function App() {
+
+const App = () => {
   const [inputName, setInputName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,8 +12,8 @@ function App() {
   const [s2ClassName, setS2ClassName] = useState("display-box");
   const [errorMessage, setErrorMessage] = useState("");
   const [inputClassName, setInputClassName] = useState("input-bloc");
-  const [type, setType] = useState("password");
-  const [isVisible, setIsVisible] = useState(false);
+  const [classType, setClassType] = useState("password");
+  const [classType1, setClassType1] = useState("password");
   return (
     <>
       <header>
@@ -21,10 +22,6 @@ function App() {
       <main>
         <div className="centralContainer">
           <Form
-            isVisible={isVisible}
-            setIsVisible={setIsVisible}
-            type={type}
-            setType={setType}
             inputName={inputName}
             setInputName={setInputName}
             email={email}
@@ -40,6 +37,10 @@ function App() {
             setS2ClassName={setS2ClassName}
             inputClassName={inputClassName}
             setInputClassName={setInputClassName}
+            classType={classType}
+            setClassType={setClassType}
+            classType1={classType1}
+            setClassType1={setClassType1}
           />
           <StepTwo
             inputName={inputName}
@@ -68,6 +69,6 @@ function App() {
       </footer>
     </>
   );
-}
+};
 
 export default App;

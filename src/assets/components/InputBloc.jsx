@@ -2,14 +2,15 @@ import { FaEye } from "react-icons/fa";
 
 const InputBloc = ({
   title,
-  isVisible,
-  setIsVisible,
-  type,
-  setType,
   value,
   setValue,
   inputClassName,
+  type,
+  onEyeClick,
+  isVisible,
 }) => {
+  console.log(inputClassName);
+
   return (
     <div className="input-bloc">
       <p>{title}</p>
@@ -21,11 +22,7 @@ const InputBloc = ({
             setValue(event.target.value);
           }}
         />
-        <button
-          onClick={() => {
-            !isVisible && setIsVisible(true);
-            isVisible ? setType("text") : setType("password");
-          }}>
+        <button type="button" onClick={onEyeClick} className={isVisible}>
           <FaEye />
         </button>
       </div>

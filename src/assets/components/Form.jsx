@@ -1,10 +1,10 @@
 import InputBloc from "../components/InputBloc";
 
 const Form = ({
-  type,
-  setType,
-  isVisible,
-  setIsVisible,
+  classType1,
+  setClassType1,
+  classType,
+  setClassType,
   inputName,
   setInputName,
   email,
@@ -42,30 +42,41 @@ const Form = ({
           type="text"
           value={inputName}
           setValue={setInputName}
+          isVisible="eye-invisible"
         />
         <InputBloc
           title="Email"
           type="email"
           value={email}
           setValue={setEmail}
+          isVisible="eye-invisible"
         />
         <InputBloc
           title="Password"
-          type={type}
-          setType={setType}
+          type={classType1}
           value={password}
           setValue={setPassword}
           inputClassName={inputClassName}
+          isVisible="eye-visible"
+          onEyeClick={() => {
+            classType1 === "password"
+              ? setClassType1("text")
+              : setClassType1("password");
+            x;
+          }}
         />
         <InputBloc
           title="Confirm your password"
-          isVisible={isVisible}
-          setIsVisible={setIsVisible}
-          type={type}
-          setType={setType}
+          type={classType}
           value={confirmPassword}
           setValue={setConfirmPassword}
           inputClassName={inputClassName}
+          onEyeClick={() => {
+            classType === "password"
+              ? setClassType("text")
+              : setClassType("password");
+          }}
+          isVisible="eye-visible"
         />
         <div className="error-bloc">{errorMessage}</div>
         <button className="submit-button">Register</button>

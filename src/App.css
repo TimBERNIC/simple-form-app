@@ -24,6 +24,15 @@ main {
 .display-box {
   display: none;
 }
+
+.eye-visible {
+  border: none;
+  width: 50px;
+}
+
+.eye-invisible {
+  display: none;
+}
 .step-two-box {
   display: flex;
   flex-direction: column;
@@ -57,14 +66,10 @@ main {
 .input-bloc {
   display: flex;
   flex-direction: column;
-  gap: 5px;
   margin-top: 20px;
   font-size: 12px;
 }
 
-.input-bloc > div {
-  display: flex;
-}
 input {
   width: 300px;
   height: 40px;
@@ -73,9 +78,12 @@ input {
   background-color: rgb(244, 244, 244);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: rgb(107, 106, 106);
-  padding: 0px 10px;
+  padding: 0px 0 0 10px;
 }
-
+.input-bloc > div {
+  display: flex;
+  flex-direction: row;
+}
 .red {
   border: solid 1px red;
   border-radius: 5px;
