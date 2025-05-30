@@ -8,7 +8,7 @@ const App = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [formClassName, setFormClassName] = useState("");
+  const [isFormValable, setIsFormValable] = useState(false);
   const [s2ClassName, setS2ClassName] = useState("display-box");
   const [errorMessage, setErrorMessage] = useState("");
   const [inputClassName, setInputClassName] = useState("input-bloc");
@@ -21,35 +21,37 @@ const App = () => {
       </header>
       <main>
         <div className="centralContainer">
-          <Form
-            inputName={inputName}
-            setInputName={setInputName}
-            email={email}
-            setEmail={setEmail}
-            password={password}
-            setPassword={setPassword}
-            confirmPassword={confirmPassword}
-            setConfirmPassword={setConfirmPassword}
-            formClassName={formClassName}
-            errorMessage={errorMessage}
-            setErrorMessage={setErrorMessage}
-            setFormClassName={setFormClassName}
-            setS2ClassName={setS2ClassName}
-            inputClassName={inputClassName}
-            setInputClassName={setInputClassName}
-            classType={classType}
-            setClassType={setClassType}
-            classType1={classType1}
-            setClassType1={setClassType1}
-          />
-          <StepTwo
-            inputName={inputName}
-            email={email}
-            password={password}
-            setFormClassName={setFormClassName}
-            s2ClassName={s2ClassName}
-            setS2ClassName={setS2ClassName}
-          />
+          {!isFormValable ? (
+            <Form
+              inputName={inputName}
+              setInputName={setInputName}
+              email={email}
+              setEmail={setEmail}
+              password={password}
+              setPassword={setPassword}
+              confirmPassword={confirmPassword}
+              setConfirmPassword={setConfirmPassword}
+              errorMessage={errorMessage}
+              setErrorMessage={setErrorMessage}
+              setS2ClassName={setS2ClassName}
+              inputClassName={inputClassName}
+              setInputClassName={setInputClassName}
+              classType={classType}
+              setClassType={setClassType}
+              classType1={classType1}
+              setClassType1={setClassType1}
+              setIsFormValable={setIsFormValable}
+            />
+          ) : (
+            <StepTwo
+              inputName={inputName}
+              email={email}
+              password={password}
+              s2ClassName={s2ClassName}
+              setS2ClassName={setS2ClassName}
+              setIsFormValable={setIsFormValable}
+            />
+          )}
         </div>
       </main>
       <footer>

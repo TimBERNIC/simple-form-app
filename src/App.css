@@ -21,10 +21,6 @@ main {
   justify-content: center;
 }
 
-.display-box {
-  display: none;
-}
-
 .eye-visible {
   border: none;
   width: 50px;
@@ -79,6 +75,11 @@ input {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: rgb(107, 106, 106);
   padding: 0px 0 0 10px;
+}
+
+input:focus {
+  outline: none;
+  border: none;
 }
 .input-bloc > div {
   display: flex;

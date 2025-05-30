@@ -1,6 +1,7 @@
 import { FaEye } from "react-icons/fa";
 
 const InputBloc = ({
+  placeholder,
   title,
   value,
   setValue,
@@ -13,9 +14,11 @@ const InputBloc = ({
 
   return (
     <div className="input-bloc">
-      <p>{title}</p>
+      <label htmlFor={title}>{title}</label>
       <div className={inputClassName}>
         <input
+          placeholder={placeholder}
+          id={title}
           type={type}
           value={value}
           onChange={(event) => {

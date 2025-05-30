@@ -2,7 +2,7 @@ const StepTwo = ({
   inputName,
   email,
   password,
-  setFormClassName,
+  setIsFormValable,
   s2ClassName,
   setS2ClassName,
 }) => {
@@ -19,7 +19,7 @@ const StepTwo = ({
       <button
         onClick={() => {
           setS2ClassName("display-box");
-          setFormClassName("form-box");
+          setIsFormValable(false);
         }}
         className="submit-button">
         Edit your informations

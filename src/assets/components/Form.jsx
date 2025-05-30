@@ -1,84 +1,69 @@
 import InputBloc from "../components/InputBloc";
 
-const Form = ({
-  classType1,
-  setClassType1,
-  classType,
-  setClassType,
-  inputName,
-  setInputName,
-  email,
-  setEmail,
-  password,
-  setPassword,
-  confirmPassword,
-  setConfirmPassword,
-  formClassName,
-  setFormClassName,
-  setS2ClassName,
-  errorMessage,
-  setErrorMessage,
-  inputClassName,
-  setInputClassName,
-}) => {
+const Form = (props) => {
   return (
     <>
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          if (password === confirmPassword) {
-            setS2ClassName("step-two-box");
-            setFormClassName("display-box");
-            setErrorMessage("");
-            setInputClassName("input-bloc");
+          if (props.password === props.confirmPassword) {
+            props.setS2ClassName("step-two-box");
+            props.setIsFormValable(true);
+            props.setErrorMessage("");
+            props.setInputClassName("input-bloc");
           } else {
-            setInputClassName("red");
-            setErrorMessage("Veuillez rentrer deux mots de passe similaires");
+            props.setInputClassName("red");
+            props.setErrorMessage(
+              "Veuillez rentrer deux mots de passe similaires"
+            );
           }
-        }}
-        className={formClassName}>
+        }}>
         <InputBloc
+          placeholder="Jean-Michel"
           title="Name"
           type="text"
-          value={inputName}
-          setValue={setInputName}
+          value={props.inputName}
+          setValue={props.setInputName}
           isVisible="eye-invisible"
         />
         <InputBloc
+          placeholder="jean-michel@youhou.fr"
           title="Email"
           type="email"
-          value={email}
-          setValue={setEmail}
+          value={props.email}
+          setValue={props.setEmail}
           isVisible="eye-invisible"
         />
         <InputBloc
           title="Password"
-          type={classType1}
-          value={password}
-          setValue={setPassword}
-          inputClassName={inputClassName}
+          placeholder="azerty1234"
+          type={props.classType1}
+          value={props.password}
+          setValue={props.setPassword}
+          inputClassName={props.inputClassName}
           isVisible="eye-visible"
           onEyeClick={() => {
-            classType1 === "password"
-              ? setClassType1("text")
-              : setClassType1("password");
+            props.classType1 === "password"
+              ? props.setClassType1("text")
+              : props.setClassType1("password");
             x;
           }}
         />
         <InputBloc
           title="Confirm your password"
-          type={classType}
-          value={confirmPassword}
-          setValue={setConfirmPassword}
-          inputClassName={inputClassName}
+          type={props.classType}
+          placeholder="azerty1234"
+          value={props.confirmPassword}
+          setValue={props.setConfirmPassword}
+          inputClassName={props.inputClassName}
           onEyeClick={() => {
-            classType === "password"
-              ? setClassType("text")
-              : setClassType("password");
+            props.classType === "password"
+              ? props.setClassType("text")
+              : props.setClassType("password");
           }}
           isVisible="eye-visible"
         />
-        <div className="error-bloc">{errorMessage}</div>
+        <div className="error-bloc">{props.errorMessage}</div>
         <button className="submit-button">Register</button>
       </form>
     </>
